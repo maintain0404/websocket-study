@@ -1,9 +1,6 @@
 const express = require('express');
-const socket = require('socket.io');
 const app = express();
 const server = app.listen(5000);
-
-app.use(cors());
 
 const io = require('socket.io')(server, {
     cors: {
@@ -21,6 +18,21 @@ io.on('connection', (socket) => {
     // io.emit() 모든 클라에 응답
     // HTTP처럼 똑같이 헤더 날라감
 
-    socket.emit('hello','안녕하세요');
-    io.emit('hello everyone', '모두 안녕하세요')  
-})
+    // socket.emit('hello','안녕하세요');
+    // io.emit('hello everyone', '모두 안녕하세요')  
+
+    // 서버에선 socket.on ~
+    console.log('Hello world!');
+    io.emit('sendText', {
+        text: '대충 서버에서 넘어온 값'
+    });
+
+    socket.on("sendMessage", (data) => {
+        //string
+
+        // 데이터 주는 역할
+        io.emit("sendMessage",{
+            text: data
+        });
+    });
+});

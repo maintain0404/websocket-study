@@ -1,18 +1,16 @@
 {
-  "name": "websocket-serve",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "socket.io-client": "^1.7.4",
-    "socketio": "^1.0.0"
+    "socket.io": "^4.0.0"
   }
 }
